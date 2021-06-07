@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ContactController;
 use App\Models\Contact;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,3 +22,7 @@ Route::post('store', [ContactController::class , 'store']);
 Route::put('edit/{id}', [ContactController::class , 'edit']);
 Route::patch('update/{id}', [ContactController::class , 'update']);
 Route::delete('destroy/{id}', [ContactController::class , 'destroy']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
